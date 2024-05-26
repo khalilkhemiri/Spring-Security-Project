@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Activation</title>
+    <style>
+        .image-top {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        .image-bottom {
+            height: 30px;
+            margin-top: 30px;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+
+            h5 {
+                margin-top: 10px;
+            }
+        }
+        h1 {
+            color: #50CD89;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: start;
+            color: #333333;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .activation-code {
+            font-size: 48px;
+            color: #007bff;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .activation-link {
+            margin-top: 20px;
+        }
+        .activation-link a {
+            display: inline-block;
+            padding: 14px 36px;
+            background-color: #50CD89;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .activation-link a:hover {
+            background-color: #48b97b;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .activation-code {
+                font-size: 42px;
+            }
+            .activation-link a {
+                padding: 12px 24px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Account Activation</h1>
+    <p class="greeting">Hello <b th:text="${username}"></b>,</p>
+    <p>Thank you for registering with us! We appreciate your interest. To complete the account activation process, use the activation code provided below.</p>
+    <div class="activation-code"><span th:text="${activation_code}"></span></div>
+    <div class="activation-link">
+        <a th:href="${confirmationUrl}" target="_blank">Activate your account</a>
+    </div>
+    <br>
+    <p>Sincerely, <br><b>Easy Dary Team</b></p>
+</div>
+<div class="footer">
+    <img src="http://localhost:34040/assets/media/logos/custom-3.png" alt="logo" class="image-bottom">
+    <h5>Send with Confidence</h5>
+    <p class="p-3">&copy 2024 - Easy Dary Teams</p>
+</div>
+</body>
+</html>
