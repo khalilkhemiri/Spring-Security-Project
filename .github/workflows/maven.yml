@@ -33,8 +33,6 @@ jobs:
 
     - name: Install dependencies
       run: mvn clean install -DskipTests
-
-    - name: Run tests
-      run: mvn test
+    
     - name: Run tests
       run: mvn run
