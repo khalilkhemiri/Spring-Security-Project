@@ -47,10 +47,17 @@ jobs:
 
     - name: Install dependencies
       run: mvn clean install -DskipTests
-    
-    - name: Verify MySQL is running
+
+    - name: Wait for MySQL to be ready
       run: |
-        sudo netstat -tuln | grep 3306
+        echo "Waiting for MySQL to be ready..."
+        until mysqladmin ping -h localhost -uroot -proot --silent; do
+          echo "Waiting for MySQL to start..."
+          sleep 5
+        done
+
+    - name: Verify MySQL connection
+      run: |
         mysql -h localhost -P 3306 -u root -proot -e "SHOW DATABASES;"
 
     - name: Run tests
